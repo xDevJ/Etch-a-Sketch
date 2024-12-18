@@ -1,0 +1,19 @@
+#container{
+    display:flex;
+    flex-wrap:wrap;
+    align-content: center;
+    justify-content: center;
+    
+}
+.box{
+    background: rgb(113, 113, 243);
+
+}
+#grid{
+    display:flex;
+    flex-wrap:wrap;
+    align-content:space-around;
+    justify-content:space-around;
+    
+}
+
