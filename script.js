@@ -8,27 +8,36 @@ div.setAttribute('id', 'grid');
 div.style.width = ("400px");
 div.style.height = ("400px");
 div.style.background = ("white");
-div.style.border = ("1px", "solid");
+
 
 // create squares to fit inside box for grid
 
 NumberOfSquares = (16 * 16);
 
-
-function createGrid(){
-    
+function createInteractiveGrid(){
     for(let i = 0; i < NumberOfSquares; i++){
         const squares = document.createElement('div');
         squares.style.width = ('17.9px');
         squares.style.height = ('17.9px');
-        squares.setAttribute('class', 'box');
         div.appendChild(squares);
+        squares.setAttribute("id", "box");
         squares.style.border = ('1px', 'solid');
-
-    }
     
+     // hover effect when mouse enters box and leaves box color changes like a trail.
+        
+        squares.addEventListener("mouseover", e => {
+            e.target.style.backgroundColor = ("red");
+        })
+        
+    
+    }
 }
-createGrid();
+createInteractiveGrid()
+
+
+    
+
+
 
 
 
