@@ -1,13 +1,23 @@
 // created box to fit squares to create grid
-
 const container = document.querySelector("#container");
 const div = document.createElement('div');
+const button = document.querySelector("button");
+
 container.appendChild(div);
 div.setAttribute('id', 'grid');
 
 div.style.width = ("400px");
 div.style.height = ("400px");
 div.style.background = ("white");
+
+
+
+
+
+
+
+
+
 
 
 // create squares to fit inside box for grid
@@ -25,17 +35,19 @@ function createInteractiveGrid(){
     
      // hover effect when mouse enters box and leaves box color changes like a trail.
         
-        squares.addEventListener("mouseover", e => {
+        squares.addEventListener("mousemove", e => {
             e.target.style.backgroundColor = ("red");
         })
         
-    
     }
+    getSquares();
 }
 createInteractiveGrid()
 
+// to get number of squares when user inputs from prompt
+function getSquares(){
 
-    
+}
 
 
 
