@@ -40,14 +40,18 @@ function createInteractiveGrid(){
         })
         
     }
-    getSquares();
+    
 }
 createInteractiveGrid()
 
 // to get number of squares when user inputs from prompt
-function getSquares(){
+button.addEventListener('click', getSquares);
 
+function getSquares(){
+    prompt("Choose Grid");
+    
 }
+
 
 
 
