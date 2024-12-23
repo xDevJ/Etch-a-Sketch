@@ -41,7 +41,7 @@ createInteractiveGrid()
 
 // to get number of squares when user inputs from prompt
 
-button.addEventListener('click', getSquares);
+button.addEventListener('click', getSquares, {once : true});
 function getSquares(){
     
     const number = prompt("Choose Grid");
@@ -53,18 +53,20 @@ function getSquares(){
     newDiv.style.height = ('');
     container.removeChild(div);
     
+    
     for(let j = 0; j < numberOfNewSquares; j++){
         
         const grid = document.createElement('div');
         grid.style.width = ('17.9px');
         grid.style.height = ('17.9px');
-        newDiv.appendChild(grid);
+    
         grid.style.border = ('1px', 'solid');
         
         
         grid.addEventListener('mouseover', e => {
             e.target.style.backgroundColor = ('blue');
         })
+        newDiv.appendChild(grid);
     }
     
     
