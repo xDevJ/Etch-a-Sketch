@@ -2,58 +2,71 @@
 const container = document.querySelector("#container");
 const div = document.createElement('div');
 const button = document.querySelector("button");
-
+div.style.width = ('400px');
+div.style.width = ('400px');
 container.appendChild(div);
 div.setAttribute('id', 'grid');
 
-div.style.width = ("400px");
-div.style.height = ("400px");
-div.style.background = ("white");
-
-
-
-
-
-
-
-
+let numberOfSquares = (16 * 16);
 
 
 
 // create squares to fit inside box for grid
 
-NumberOfSquares = (16 * 16);
+
 
 function createInteractiveGrid(){
-    for(let i = 0; i < NumberOfSquares; i++){
+    for(let i = 0; i < numberOfSquares; i++){
         const squares = document.createElement('div');
         squares.style.width = ('17.9px');
         squares.style.height = ('17.9px');
         div.appendChild(squares);
         squares.setAttribute("id", "box");
         squares.style.border = ('1px', 'solid');
-    
+        
+        
      // hover effect when mouse enters box and leaves box color changes like a trail.
         
         squares.addEventListener("mousemove", e => {
             e.target.style.backgroundColor = ("red");
         })
         
+    
     }
+    
+   
     
 }
 createInteractiveGrid()
 
 // to get number of squares when user inputs from prompt
-button.addEventListener('click', getSquares);
 
+button.addEventListener('click', getSquares);
 function getSquares(){
-    prompt("Choose Grid");
+    
+    const number = prompt("Choose Grid");
+    let numberOfNewSquares = (number * number);
+    const newDiv = document.createElement('div');
+    newDiv.setAttribute('id', 'new-grid');
+    container.appendChild(newDiv);
+    newDiv.style.width = ('960px');
+    newDiv.style.height = ('');
+    container.removeChild(div);
+    
+    for(let j = 0; j < numberOfNewSquares; j++){
+        
+        const grid = document.createElement('div');
+        grid.style.width = ('17.9px');
+        grid.style.height = ('17.9px');
+        newDiv.appendChild(grid);
+        grid.style.border = ('1px', 'solid');
+        
+        
+        grid.addEventListener('mouseover', e => {
+            e.target.style.backgroundColor = ('blue');
+        })
+    }
+    
+    
     
 }
-
-
-
-
-
-
