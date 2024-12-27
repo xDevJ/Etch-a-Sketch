@@ -1,49 +1,34 @@
+.button{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom: 10px;
+}
+button{
+    background-color: royalblue;
+    border-radius: 10px;
+    color: whitesmoke;
+}
 #container{
     display:flex;
     align-items: center;
-    align-content:center;
     justify-content: center;
-   
+    background-color: yellow;
+    
+    width: 100%;
+    height: 100%;
     
 }
-.box{
-    background: white;
-    
-   
-   
-
-}
-#grid{
+#box{
     display:flex;
-    flex-wrap:wrap;
-    align-items:space-evenly;
+    flex-wrap: wrap;
     align-content:space-evenly;
+    align-items: space-evenly;
     justify-content:space-evenly;
-   
-    
 }
-#new-grid{
+#newboxes{
     display:flex;
-    flex-wrap:wrap;
-    align-items:center;
-    align-content:center;
-    justify-content:center;
-   
+
     
-}
-.button{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin: 20px;
-}
-button{
-    width: 80px;
-    height: 30px;
-    border-radius: 10px;
-    background-color: royalblue;
-    color:white;
-    font-weight:bold;
-    text-align:center;
 }
 
