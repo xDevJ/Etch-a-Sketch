@@ -1,74 +1,74 @@
-// created box to fit squares to create grid
 const container = document.querySelector("#container");
-const div = document.createElement('div');
-const button = document.querySelector("button");
+const div = document.createElement("div");
 div.style.width = ('400px');
-div.style.width = ('400px');
+div.style.height = ('400px');
+div.style.backgroundColor = ('orange');
+div.setAttribute('id', 'box');
 container.appendChild(div);
-div.setAttribute('id', 'grid');
+
+
+const button = document.querySelector('button');
+
 
 let numberOfSquares = (16 * 16);
 
-
-
-// create squares to fit inside box for grid
-
-
-
-function createInteractiveGrid(){
+function makeGrid(){
+    
     for(let i = 0; i < numberOfSquares; i++){
-        const squares = document.createElement('div');
-        squares.style.width = ('17.9px');
-        squares.style.height = ('17.9px');
-        div.appendChild(squares);
-        squares.setAttribute("id", "box");
-        squares.style.border = ('1px', 'solid');
+       const boxes = document.createElement('div');
+       boxes.setAttribute('id', 'boxes');
+       boxes.style.border = ('1px', 'solid')
+       boxes.style.width = ('17.9px');
+       boxes.style.height = ('17.9px');
+       boxes.style.backgroundColor = ('white');
+       div.appendChild(boxes);
         
-        
-     // hover effect when mouse enters box and leaves box color changes like a trail.
-        
-        squares.addEventListener("mousemove", e => {
-            e.target.style.backgroundColor = ("red");
-        })
-        
-    
+       boxes.addEventListener('mouseover', function(){
+            boxes.style.backgroundColor = ('black');
+       })
     }
-    
-   
-    
+    console.log(div.clientWidth)
 }
-createInteractiveGrid()
+makeGrid();
 
-// to get number of squares when user inputs from prompt
+function ChooseGrid(){
+    button.addEventListener('click', function(){
+        const numInput = prompt("Choose size of grid!");
+        let numberOfSquares = parseInt(numInput * numInput);
+        const message = document.querySelector('.message');
+        console.log(numInput);
+        
 
-button.addEventListener('click', getSquares, {once : true});
-function getSquares(){
+        if(numInput < 0 || numInput > 100 ){
+            message.textContent = ("number has to be between 0 and 100");
+        } else if( numInput > 0 || numInput < 100){
+            message.textContent = ('Lets Sketch!');
+            
+            div.innerHTML = '';
+        }else {
+            message.textContent = ("Not a number, Try Again!");
+            console.log(message);
+            
+        }
     
-    const number = prompt("Choose Grid");
-    let numberOfNewSquares = (number * number);
-    const newDiv = document.createElement('div');
-    newDiv.setAttribute('id', 'new-grid');
-    container.appendChild(newDiv);
-    newDiv.style.width = ('960px');
-    newDiv.style.height = ('');
-    container.removeChild(div);
+        for(let j = 0; j < numberOfSquares; j++){
+            
+           const newBoxes = document.createElement('div');
+           newBoxes.setAttribute('id', 'newboxes');
+           newBoxes.style.border = ('1px', 'solid');
+           newBoxes.style.width = ('16.9px');
+           newBoxes.style.height = ('16.9px');
+           newBoxes.style.backgroundColor = ('white');
+           
+           div.appendChild(newBoxes);
+           
+           newBoxes.addEventListener('mouseover', function(){
+                newBoxes.style.backgroundColor = ('black');
+            })
+        }
+    });
     
     
-    for(let j = 0; j < numberOfNewSquares; j++){
-        
-        const grid = document.createElement('div');
-        grid.style.width = ('17.9px');
-        grid.style.height = ('17.9px');
-    
-        grid.style.border = ('1px', 'solid');
-        
-        
-        grid.addEventListener('mouseover', e => {
-            e.target.style.backgroundColor = ('blue');
-        })
-        newDiv.appendChild(grid);
-    }
-    
-    
-    
+
 }
+ChooseGrid();
