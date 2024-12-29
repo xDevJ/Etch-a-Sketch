@@ -32,13 +32,13 @@ function ChooseGrid(){
     button.addEventListener('click', function(){
         const numInput = prompt("Choose size of grid!");
         let numberOfSquares = parseInt(numInput * numInput);
-        const message = document.querySelector('.message');
+        const message = document.querySelector('#message');
         
       
     // defining totalSquares    
       const totalSquares = (container.clientWidth / numInput);
         
-        console.log(totalSquares);
+       
 
 
         if(numInput < 0 || numInput > 100 ){
@@ -61,7 +61,7 @@ function ChooseGrid(){
            newBoxes.style.height = (`${totalSquares}px`);
            newBoxes.style.backgroundColor = ('white');
            
-          console.log(totalSquares);
+          
            container.appendChild(newBoxes);
            
            newBoxes.addEventListener('mouseover', function(){
