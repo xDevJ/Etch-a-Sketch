@@ -15,8 +15,7 @@ button{
     flex-wrap:wrap;
     align-content:space-evenly;
     align-items: center;
-    justify-content: space-evenly;
-    background-color: yellow;
+    justify-content: center;
     width: 400px;
     height:400px;
     margin-left:auto;
@@ -36,4 +35,11 @@ button{
   justify-content: space-evenly;
   align-content:space-evenly;
   border: 1px solid black;       
+}
+#message{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+
 }
