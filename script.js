@@ -43,6 +43,7 @@ function ChooseGrid(){
 
         if(numInput < 0 || numInput > 100 ){
             message.textContent = ("number has to be between 0 and 100");
+            return numInput;
         } else if( numInput > 0 || numInput < 100){
             message.textContent = ('Lets Sketch!');
             
