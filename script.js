@@ -1,12 +1,5 @@
 const container = document.querySelector("#container");
-const div = document.createElement("div");
-div.style.width = ('400px');
-div.style.height = ('400px');
-div.style.backgroundColor = ('orange');
-div.setAttribute('id', 'box');
-container.appendChild(div);
-
-
+container.setAttribute('class', 'align');
 const button = document.querySelector('button');
 
 
@@ -14,20 +7,24 @@ let numberOfSquares = (16 * 16);
 
 function makeGrid(){
     
+    console.log(container.clientWidth)
+
     for(let i = 0; i < numberOfSquares; i++){
-       const boxes = document.createElement('div');
-       boxes.setAttribute('id', 'boxes');
-       boxes.style.border = ('1px', 'solid')
-       boxes.style.width = ('17.9px');
-       boxes.style.height = ('17.9px');
-       boxes.style.backgroundColor = ('white');
-       div.appendChild(boxes);
+       const defaultBoxes = document.createElement('div')
+       
+       defaultBoxes.style.width =   `${container.clientWidth / 16}px`;
+       defaultBoxes.setAttribute('id','df-boxes');
+       defaultBoxes.style.height = `${container.clientWidth / 16}px`;
+       defaultBoxes.style.backgroundColor = ('white');
+       container.appendChild(defaultBoxes);
         
-       boxes.addEventListener('mouseover', function(){
-            boxes.style.backgroundColor = ('black');
+       defaultBoxes.addEventListener('mouseover', function(){
+            defaultBoxes.style.backgroundColor = ('black');
        })
+
+       
     }
-    console.log(div.clientWidth)
+    
 }
 makeGrid();
 
@@ -36,15 +33,20 @@ function ChooseGrid(){
         const numInput = prompt("Choose size of grid!");
         let numberOfSquares = parseInt(numInput * numInput);
         const message = document.querySelector('.message');
-        console.log(numInput);
         
+      
+    // defining totalSquares    
+      const totalSquares = (container.clientWidth / numInput);
+        
+        console.log(totalSquares);
+
 
         if(numInput < 0 || numInput > 100 ){
             message.textContent = ("number has to be between 0 and 100");
         } else if( numInput > 0 || numInput < 100){
             message.textContent = ('Lets Sketch!');
             
-            div.innerHTML = '';
+            container.innerHTML = '';
         }else {
             message.textContent = ("Not a number, Try Again!");
             console.log(message);
@@ -54,13 +56,13 @@ function ChooseGrid(){
         for(let j = 0; j < numberOfSquares; j++){
             
            const newBoxes = document.createElement('div');
-           newBoxes.setAttribute('id', 'newboxes');
-           newBoxes.style.border = ('1px', 'solid');
-           newBoxes.style.width = ('16.9px');
-           newBoxes.style.height = ('16.9px');
+           newBoxes.setAttribute('id', 'new-boxes');
+           newBoxes.style.width = (`${totalSquares}px`);
+           newBoxes.style.height = (`${totalSquares}px`);
            newBoxes.style.backgroundColor = ('white');
            
-           div.appendChild(newBoxes);
+          console.log(totalSquares);
+           container.appendChild(newBoxes);
            
            newBoxes.addEventListener('mouseover', function(){
                 newBoxes.style.backgroundColor = ('black');
